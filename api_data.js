@@ -353,7 +353,7 @@ define({ "api": [
   {
     "type": "POST",
     "url": "http://hostname/chats/id_chat/messages",
-    "title": "Create a message",
+    "title": "Create a new message",
     "name": "CreateMessage",
     "group": "Messages",
     "parameter": {
