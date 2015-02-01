@@ -13,14 +13,14 @@
             "type": "bool",
             "optional": false,
             "field": "close",
-            "description": "<p>I wanna chat with someone close of me.</p> "
+            "description": "<p>I wanna chat with someone close to me.</p> "
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "language",
-            "description": "<p>Langhage that a can talk at the chat.</p> "
+            "description": "<p>Langhage that I can talk at the chat.</p> "
           }
         ]
       }
@@ -47,7 +47,7 @@
             "type": "String",
             "optional": false,
             "field": "X-Token",
-            "description": "<p>Tpken of session</p> "
+            "description": "<p>Token of session</p> "
           }
         ]
       }
@@ -192,21 +192,21 @@
             "type": "bool",
             "optional": false,
             "field": "funny",
-            "description": "<p>have talked to a funny person.</p> "
+            "description": "<p>I have talked to a funny person.</p> "
           },
           {
             "group": "Parameter",
             "type": "bool",
             "optional": false,
             "field": "polite",
-            "description": "<p>have talked to a polite person.</p> "
+            "description": "<p>I have talked to a polite person.</p> "
           },
           {
             "group": "Parameter",
             "type": "bool",
             "optional": false,
             "field": "nice",
-            "description": "<p>have talked to a nice person.</p> "
+            "description": "<p>I have talked to a nice person.</p> "
           }
         ]
       }
@@ -449,7 +449,7 @@
   {
     "type": "GET",
     "url": "http://hostname/chats/id_chat/messages/id_message",
-    "title": "Show message by id",
+    "title": "Show message content by id",
     "name": "IndexMessage",
     "group": "Messages",
     "header": {
