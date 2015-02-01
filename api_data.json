@@ -82,7 +82,7 @@
   {
     "type": "GET",
     "url": "http://hostname/chats/messages",
-    "title": "Show messages headers",
+    "title": "Show headers of unread messages",
     "name": "ShowMessages",
     "group": "Chat_Messages",
     "header": {
@@ -206,9 +206,119 @@
     "groupTitle": "Chats"
   },
   {
+    "type": "POST",
+    "url": "http://hostname/user/inbox",
+    "title": "Create a new inbox message",
+    "name": "CreateInboxMessage",
+    "group": "Inbox_Messages",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "to",
+            "description": "<p>User recipient.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "content",
+            "description": "<p>Content of a message.</p> "
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "{\n  \"content\": \"Anna\"\n  \"content\": \"Hello Anna!\"\n}",
+        "type": "json"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Headers": [
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "Content-type",
+            "description": "<p>application/json</p> "
+          },
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token",
+            "description": "<p>Token of session</p> "
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./example.js",
+    "groupTitle": "Inbox_Messages"
+  },
+  {
+    "type": "GET",
+    "url": "http://hostname/user/inbox/to-me",
+    "title": "Show headers of unread inbox messages",
+    "name": "IndexInboxMessage",
+    "group": "Inbox_Messages",
+    "header": {
+      "fields": {
+        "Headers": [
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token",
+            "description": "<p>Token of session</p> "
+          },
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "Id-Message",
+            "description": "<p>Id of a inbox message that I want to see</p> "
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./example.js",
+    "groupTitle": "Inbox_Messages"
+  },
+  {
+    "type": "GET",
+    "url": "http://hostname/user/inbox",
+    "title": "Show inbox message content by id",
+    "name": "ShowInboxMessage",
+    "group": "Inbox_Messages",
+    "header": {
+      "fields": {
+        "Headers": [
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token",
+            "description": "<p>Token of session</p> "
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./example.js",
+    "groupTitle": "Inbox_Messages"
+  },
+  {
     "type": "GET",
     "url": "http://hostname/friends",
-    "title": "Get a user friend list basic profile",
+    "title": "Get a user friend list basic profiles",
     "name": "GetFriends",
     "group": "Profiles",
     "header": {
@@ -229,7 +339,7 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Array",
             "optional": false,
             "field": "friend",
             "description": "<p>List of friends basic profile.</p> "
@@ -239,7 +349,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "    HTTP/1.1 200 OK\n    {\n      \"friends\": [\n\t\t\t\t\t\t{\"nick\": \"Anna\", \"photo\": \"http://media.chatapp.com/photo/fsdfrfsdfsdf\"},\n\t\t\t\t\t\t{\"nick\": \"Giselle\", \"photo\": \"http://media.chatapp.com/photo/fsdfrfsiuaof\"},\n\t\t\t\t\t\t{\"nick\": \"Mike\", \"photo\": \"http://media.chatapp.com/photo/fsdfaosifsdf\"},\n\t\t\t\t\t]\n    }",
+          "content": "    HTTP/1.1 200 OK\n    {\n      \"friends\": [\n                     {\"nick\": \"Anna\", \"photo\": \"http://media.chatapp.com/photo/fsdfrfsdfsdf\"},\n                     {\"nick\": \"Giselle\", \"photo\": \"http://media.chatapp.com/photo/fsdfrfsiuaof\"},\n                     {\"nick\": \"Mike\", \"photo\": \"http://media.chatapp.com/photo/fsdfaosifsdf\"}\n\t\t\t\t\t]\n    }",
           "type": "json"
         }
       ]
@@ -286,7 +396,7 @@
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Number",
             "optional": false,
             "field": "friends",
             "description": "<p>Number of user friends.</p> "
@@ -303,7 +413,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "    HTTP/1.1 200 OK\n    {\n      \"nick\": \"Anna\",\n      \"photo\": \"http://media.chatapp.com/photo/fsdfrfsdfsdf\",\n\t\t \"friends\": 32,\n\t\t \"rate\": \"Cool girl\",\n    }",
+          "content": "HTTP/1.1 200 OK\n{\n  \"nick\": \"Anna\",\n  \"photo\": \"http://media.chatapp.com/photo/fsdfrfsdfsdf\",\n  \"friends\": 32,\n  \"rate\": \"Cool girl\",\n}",
           "type": "json"
         }
       ]
@@ -441,6 +551,170 @@
     "version": "0.0.0",
     "filename": "./example.js",
     "groupTitle": "Sessions"
+  },
+  {
+    "type": "POST",
+    "url": "http://hostname/users/scraps",
+    "title": "Create a new scrap",
+    "name": "CreateScrap",
+    "group": "Sraps",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "nick",
+            "description": "<p>Nickname o a friend.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "content",
+            "description": "<p>Content of scrap.</p> "
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "{\n  \"nick\": \"Mero\",\n  \"content\": \"That's a nice man\"\n}",
+        "type": "json"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Headers": [
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "Content-type",
+            "description": "<p>application/json</p> "
+          },
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token",
+            "description": "<p>Token of session</p> "
+          },
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "nick",
+            "description": "<p>Request nickname</p> "
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./example.js",
+    "groupTitle": "Sraps"
+  },
+  {
+    "type": "DELETE",
+    "url": "http://hostname/users/scraps",
+    "title": "Create a new scrap",
+    "name": "CreateScrap",
+    "group": "Sraps",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Scrap id.</p> "
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "{\n  \"id\": 2158\n}",
+        "type": "json"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Headers": [
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "Content-type",
+            "description": "<p>application/json</p> "
+          },
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token",
+            "description": "<p>Token of session</p> "
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./example.js",
+    "groupTitle": "Sraps"
+  },
+  {
+    "type": "GET",
+    "url": "http://hostname/users/scraps",
+    "title": "Request scraps of a nick",
+    "name": "GetScrap",
+    "group": "Sraps",
+    "header": {
+      "fields": {
+        "Headers": [
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token",
+            "description": "<p>Token of session</p> "
+          },
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "nick",
+            "description": "<p>Request nickname</p> "
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "scraps",
+            "description": "<p>List of scraps.</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"scraps\": [\n               {\"id\": 1851, \"sender\": \"Anna\", \"content\": \"That's a nice man\", \"likes\": 7},\n               {\"id\": 2158, \"sender\": \"Giselle\", \"content\": \"I love you!\", \"likes\": 12}\n            ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./example.js",
+    "groupTitle": "Sraps"
   },
   {
     "type": "POST",
