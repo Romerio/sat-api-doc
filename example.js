@@ -22,8 +22,15 @@ bplist00—_WebMainResource’
  * @apiName IndexMessage
  * @apiGroup Chat Messages
  *
+ * @apiParam {String} id Id-Message Id of a Message that I want to see.
+ *
+ * @apiExample Example usage:
+ *     {
+ *       "id": 12545
+ *     }
+ *
+ * @apiHeader (Headers) {String} Content-type application/json
  * @apiHeader (Headers) {String} X-Token Token of session
- * @apiHeader (Headers) {String} Id-Message Id of a Message that I want to see
  *
  */
 
@@ -90,12 +97,12 @@ bplist00—_WebMainResource’
  * @apiName CreateInboxMessage
  * @apiGroup Inbox Messages
  *
- * @apiParam {String} to User recipient.
+ * @apiParam {String} nick User recipient.
  * @apiParam {String} content Content of a message.
  *
  * @apiExample Example usage:
  *     {
- *       "content": "Anna"
+ *       "nick": "Anna"
  *       "content": "Hello Anna!"
  *     }
  *
@@ -105,21 +112,28 @@ bplist00—_WebMainResource’
  */
 
  /**
- * @api {GET} http://hostname/user/inbox Show inbox message content by id
+ * @api {GET} http://hostname/user/inbox/to-me Show inbox message content by id
  * @apiName ShowInboxMessage
  * @apiGroup Inbox Messages
  *
+ * @apiParam {String} id Id-Message Id of a inbox message that I want to see.
+ *
+ * @apiExample Example usage:
+ *     {
+ *       "id": 12465
+ *     }
+ *
+ * @apiHeader (Headers) {String} Content-type application/json
  * @apiHeader (Headers) {String} X-Token Token of session
  *
  */
 
   /**
- * @api {GET} http://hostname/user/inbox/to-me Show headers of unread inbox messages
+ * @api {GET} http://hostname/user/inbox Show headers of unread inbox messages
  * @apiName IndexInboxMessage
  * @apiGroup Inbox Messages
  *
  * @apiHeader (Headers) {String} X-Token Token of session
- * @apiHeader (Headers) {String} Id-Message Id of a inbox message that I want to see
  *
  */
 
@@ -162,7 +176,7 @@ bplist00—_WebMainResource’
  *       "nick": "Anna",
  *       "photo": "http://media.chatapp.com/photo/fsdfrfsdfsdf",
  *       "friends": 32,
- *       "rate": "Cool girl",
+ *       "rate": "Cool girl"
  *     }
  *
  */
@@ -183,7 +197,7 @@ bplist00—_WebMainResource’
  *                      {"nick": "Anna", "photo": "http://media.chatapp.com/photo/fsdfrfsdfsdf"},
  *                      {"nick": "Giselle", "photo": "http://media.chatapp.com/photo/fsdfrfsiuaof"},
  *                      {"nick": "Mike", "photo": "http://media.chatapp.com/photo/fsdfaosifsdf"}
- *					]
+ *                  ]
  *     }
  *
  */
@@ -230,8 +244,8 @@ bplist00—_WebMainResource’
  *
  */
  /**
- * @api {DELETE} http://hostname/users/scraps Create a new scrap
- * @apiName CreateScrap
+ * @api {DELETE} http://hostname/users/scraps Delete scrap
+ * @apiName DeleteScrap
  * @apiGroup Sraps
  *
  * @apiParam {String} id Scrap id.
