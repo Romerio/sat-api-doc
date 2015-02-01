@@ -209,8 +209,14 @@ bplist00—_WebMainResource’
  * @apiName GetScrap
  * @apiGroup Sraps
  *
+ * @apiParam {String} nick Nickname of friend.
+ *
+ * @apiExample Example usage:
+ *     {
+ *       "nick": "Mero",
+ *     }
+ *
  * @apiHeader (Headers) {String} X-Token Token of session
- * @apiHeader (Headers) {String} nick Request nickname
  *
  * @apiSuccess {Array} scraps List of scraps.
  *
@@ -229,7 +235,7 @@ bplist00—_WebMainResource’
  * @apiName CreateScrap
  * @apiGroup Sraps
  *
- * @apiParam {String} nick Nickname o a friend.
+ * @apiParam {String} nick Nickname of a friend.
  * @apiParam {String} content Content of scrap.
  *
  * @apiExample Example usage:
@@ -240,7 +246,6 @@ bplist00—_WebMainResource’
  *
  * @apiHeader (Headers) {String} Content-type application/json
  * @apiHeader (Headers) {String} X-Token Token of session
- * @apiHeader (Headers) {String} nick Request nickname
  *
  */
  /**
