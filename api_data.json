@@ -51,7 +51,7 @@
   },
   {
     "type": "GET",
-    "url": "http://hostname/chats/messages",
+    "url": "http://hostname/chats/messages/to-me",
     "title": "Show message content by id",
     "name": "IndexMessage",
     "group": "Chat_Messages",
