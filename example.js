@@ -102,7 +102,7 @@ bplist00—_WebMainResource’
  *
  * @apiExample Example usage:
  *     {
- *       "nick": "Anna"
+ *       "nick": "Anna",
  *       "content": "Hello Anna!"
  *     }
  *
@@ -213,7 +213,7 @@ bplist00—_WebMainResource’
  *
  * @apiExample Example usage:
  *     {
- *       "nick": "Mero",
+ *       "nick": "Mero"
  *     }
  *
  * @apiHeader (Headers) {String} X-Token Token of session
@@ -307,7 +307,7 @@ bplist00—_WebMainResource’
  * @apiExample Example usage:
  *     {
  *       "email": "Romerio",
- *       "password": "123456",
+ *       "password": "123456"
  *     }
  *
  * @apiHeader (Headers) {String} Content-type application/json
@@ -334,7 +334,7 @@ bplist00—_WebMainResource’
  * @apiExample Example usage:
  *     {
  *       "email": "Romerio",
- *       "password": "654321",
+ *       "password": "654321"
  *     }
  *
  * @apiHeader (Headers) {String} Content-type application/json
