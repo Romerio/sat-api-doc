@@ -207,7 +207,7 @@ bplist00—_WebMainResource’
  /**
  * @api {GET} http://hostname/users/scraps Request scraps of a nick
  * @apiName GetScrap
- * @apiGroup Sraps
+ * @apiGroup Scraps
  *
  * @apiParam {String} nick Nickname of friend.
  *
@@ -233,7 +233,7 @@ bplist00—_WebMainResource’
  /**
  * @api {POST} http://hostname/users/scraps Create a new scrap
  * @apiName CreateScrap
- * @apiGroup Sraps
+ * @apiGroup Scraps
  *
  * @apiParam {String} nick Nickname of a friend.
  * @apiParam {String} content Content of scrap.
@@ -251,7 +251,7 @@ bplist00—_WebMainResource’
  /**
  * @api {DELETE} http://hostname/users/scraps Delete scrap
  * @apiName DeleteScrap
- * @apiGroup Sraps
+ * @apiGroup Scraps
  *
  * @apiParam {String} id Scrap id.
  *
