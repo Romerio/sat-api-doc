@@ -184,7 +184,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "http://hostname/chats/id_chat",
+    "url": "http://hostname/chats",
     "title": "Show status of a chat",
     "name": "ShowChat",
     "group": "Chats",
@@ -329,7 +329,7 @@ define({ "api": [
     "groupTitle": "Users"
   },
   {
-    "type": "PUT",
+    "type": "DELETE",
     "url": "http://hostname/accounts",
     "title": "Delete a user",
     "name": "DeleteUser",
