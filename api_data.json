@@ -606,7 +606,7 @@
             "type": "String",
             "optional": false,
             "field": "nick",
-            "description": "<p>Nickname o a friend.</p> "
+            "description": "<p>Nickname of a friend.</p> "
           },
           {
             "group": "Parameter",
@@ -641,13 +641,6 @@
             "optional": false,
             "field": "X-Token",
             "description": "<p>Token of session</p> "
-          },
-          {
-            "group": "Headers",
-            "type": "String",
-            "optional": false,
-            "field": "nick",
-            "description": "<p>Request nickname</p> "
           }
         ]
       }
@@ -712,6 +705,26 @@
     "title": "Request scraps of a nick",
     "name": "GetScrap",
     "group": "Sraps",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "nick",
+            "description": "<p>Nickname of friend.</p> "
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "{\n  \"nick\": \"Mero\",\n}",
+        "type": "json"
+      }
+    ],
     "header": {
       "fields": {
         "Headers": [
@@ -721,13 +734,6 @@
             "optional": false,
             "field": "X-Token",
             "description": "<p>Token of session</p> "
-          },
-          {
-            "group": "Headers",
-            "type": "String",
-            "optional": false,
-            "field": "nick",
-            "description": "<p>Request nickname</p> "
           }
         ]
       }
