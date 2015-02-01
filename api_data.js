@@ -55,6 +55,26 @@ define({ "api": [
     "title": "Show message content by id",
     "name": "IndexMessage",
     "group": "Chat_Messages",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Id-Message Id of a Message that I want to see.</p> "
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "{\n  \"id\": 12545\n}",
+        "type": "json"
+      }
+    ],
     "header": {
       "fields": {
         "Headers": [
@@ -62,15 +82,15 @@ define({ "api": [
             "group": "Headers",
             "type": "String",
             "optional": false,
-            "field": "X-Token",
-            "description": "<p>Token of session</p> "
+            "field": "Content-type",
+            "description": "<p>application/json</p> "
           },
           {
             "group": "Headers",
             "type": "String",
             "optional": false,
-            "field": "Id-Message",
-            "description": "<p>Id of a Message that I want to see</p> "
+            "field": "X-Token",
+            "description": "<p>Token of session</p> "
           }
         ]
       }
@@ -218,7 +238,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "to",
+            "field": "nick",
             "description": "<p>User recipient.</p> "
           },
           {
@@ -234,7 +254,7 @@ define({ "api": [
     "examples": [
       {
         "title": "Example usage:",
-        "content": "{\n  \"content\": \"Anna\"\n  \"content\": \"Hello Anna!\"\n}",
+        "content": "{\n  \"nick\": \"Anna\"\n  \"content\": \"Hello Anna!\"\n}",
         "type": "json"
       }
     ],
@@ -264,7 +284,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "http://hostname/user/inbox/to-me",
+    "url": "http://hostname/user/inbox",
     "title": "Show headers of unread inbox messages",
     "name": "IndexInboxMessage",
     "group": "Inbox_Messages",
@@ -277,13 +297,6 @@ define({ "api": [
             "optional": false,
             "field": "X-Token",
             "description": "<p>Token of session</p> "
-          },
-          {
-            "group": "Headers",
-            "type": "String",
-            "optional": false,
-            "field": "Id-Message",
-            "description": "<p>Id of a inbox message that I want to see</p> "
           }
         ]
       }
@@ -294,13 +307,40 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "http://hostname/user/inbox",
+    "url": "http://hostname/user/inbox/to-me",
     "title": "Show inbox message content by id",
     "name": "ShowInboxMessage",
     "group": "Inbox_Messages",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Id-Message Id of a inbox message that I want to see.</p> "
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "{\n  \"id\": 12465\n}",
+        "type": "json"
+      }
+    ],
     "header": {
       "fields": {
         "Headers": [
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "Content-type",
+            "description": "<p>application/json</p> "
+          },
           {
             "group": "Headers",
             "type": "String",
@@ -349,7 +389,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "    HTTP/1.1 200 OK\n    {\n      \"friends\": [\n                     {\"nick\": \"Anna\", \"photo\": \"http://media.chatapp.com/photo/fsdfrfsdfsdf\"},\n                     {\"nick\": \"Giselle\", \"photo\": \"http://media.chatapp.com/photo/fsdfrfsiuaof\"},\n                     {\"nick\": \"Mike\", \"photo\": \"http://media.chatapp.com/photo/fsdfaosifsdf\"}\n\t\t\t\t\t]\n    }",
+          "content": "HTTP/1.1 200 OK\n{\n  \"friends\": [\n                 {\"nick\": \"Anna\", \"photo\": \"http://media.chatapp.com/photo/fsdfrfsdfsdf\"},\n                 {\"nick\": \"Giselle\", \"photo\": \"http://media.chatapp.com/photo/fsdfrfsiuaof\"},\n                 {\"nick\": \"Mike\", \"photo\": \"http://media.chatapp.com/photo/fsdfaosifsdf\"}\n             ]\n}",
           "type": "json"
         }
       ]
@@ -413,7 +453,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"nick\": \"Anna\",\n  \"photo\": \"http://media.chatapp.com/photo/fsdfrfsdfsdf\",\n  \"friends\": 32,\n  \"rate\": \"Cool girl\",\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"nick\": \"Anna\",\n  \"photo\": \"http://media.chatapp.com/photo/fsdfrfsdfsdf\",\n  \"friends\": 32,\n  \"rate\": \"Cool girl\"\n}",
           "type": "json"
         }
       ]
@@ -619,8 +659,8 @@ define({ "api": [
   {
     "type": "DELETE",
     "url": "http://hostname/users/scraps",
-    "title": "Create a new scrap",
-    "name": "CreateScrap",
+    "title": "Delete scrap",
+    "name": "DeleteScrap",
     "group": "Sraps",
     "parameter": {
       "fields": {
