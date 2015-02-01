@@ -521,6 +521,176 @@ define({ "api": [
   },
   {
     "type": "POST",
+    "url": "http://hostname/users/scraps",
+    "title": "Create a new scrap",
+    "name": "CreateScrap",
+    "group": "Scraps",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "nick",
+            "description": "<p>Nickname of a friend.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "content",
+            "description": "<p>Content of scrap.</p> "
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "{\n  \"nick\": \"Mero\",\n  \"content\": \"That's a nice man\"\n}",
+        "type": "json"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Headers": [
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "Content-type",
+            "description": "<p>application/json</p> "
+          },
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token",
+            "description": "<p>Token of session</p> "
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./example.js",
+    "groupTitle": "Scraps"
+  },
+  {
+    "type": "DELETE",
+    "url": "http://hostname/users/scraps",
+    "title": "Delete scrap",
+    "name": "DeleteScrap",
+    "group": "Scraps",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Scrap id.</p> "
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "{\n  \"id\": 2158\n}",
+        "type": "json"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Headers": [
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "Content-type",
+            "description": "<p>application/json</p> "
+          },
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token",
+            "description": "<p>Token of session</p> "
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./example.js",
+    "groupTitle": "Scraps"
+  },
+  {
+    "type": "GET",
+    "url": "http://hostname/users/scraps",
+    "title": "Request scraps of a nick",
+    "name": "GetScrap",
+    "group": "Scraps",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "nick",
+            "description": "<p>Nickname of friend.</p> "
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "{\n  \"nick\": \"Mero\"\n}",
+        "type": "json"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Headers": [
+          {
+            "group": "Headers",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token",
+            "description": "<p>Token of session</p> "
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "scraps",
+            "description": "<p>List of scraps.</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"scraps\": [\n               {\"id\": 1851, \"sender\": \"Anna\", \"content\": \"That's a nice man\", \"likes\": 7},\n               {\"id\": 2158, \"sender\": \"Giselle\", \"content\": \"I love you!\", \"likes\": 12}\n            ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./example.js",
+    "groupTitle": "Scraps"
+  },
+  {
+    "type": "POST",
     "url": "http://hostname/auth",
     "title": "Login user",
     "name": "LoginSession",
@@ -591,176 +761,6 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "./example.js",
     "groupTitle": "Sessions"
-  },
-  {
-    "type": "POST",
-    "url": "http://hostname/users/scraps",
-    "title": "Create a new scrap",
-    "name": "CreateScrap",
-    "group": "Sraps",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "nick",
-            "description": "<p>Nickname of a friend.</p> "
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "content",
-            "description": "<p>Content of scrap.</p> "
-          }
-        ]
-      }
-    },
-    "examples": [
-      {
-        "title": "Example usage:",
-        "content": "{\n  \"nick\": \"Mero\",\n  \"content\": \"That's a nice man\"\n}",
-        "type": "json"
-      }
-    ],
-    "header": {
-      "fields": {
-        "Headers": [
-          {
-            "group": "Headers",
-            "type": "String",
-            "optional": false,
-            "field": "Content-type",
-            "description": "<p>application/json</p> "
-          },
-          {
-            "group": "Headers",
-            "type": "String",
-            "optional": false,
-            "field": "X-Token",
-            "description": "<p>Token of session</p> "
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "./example.js",
-    "groupTitle": "Sraps"
-  },
-  {
-    "type": "DELETE",
-    "url": "http://hostname/users/scraps",
-    "title": "Delete scrap",
-    "name": "DeleteScrap",
-    "group": "Sraps",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Scrap id.</p> "
-          }
-        ]
-      }
-    },
-    "examples": [
-      {
-        "title": "Example usage:",
-        "content": "{\n  \"id\": 2158\n}",
-        "type": "json"
-      }
-    ],
-    "header": {
-      "fields": {
-        "Headers": [
-          {
-            "group": "Headers",
-            "type": "String",
-            "optional": false,
-            "field": "Content-type",
-            "description": "<p>application/json</p> "
-          },
-          {
-            "group": "Headers",
-            "type": "String",
-            "optional": false,
-            "field": "X-Token",
-            "description": "<p>Token of session</p> "
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "./example.js",
-    "groupTitle": "Sraps"
-  },
-  {
-    "type": "GET",
-    "url": "http://hostname/users/scraps",
-    "title": "Request scraps of a nick",
-    "name": "GetScrap",
-    "group": "Sraps",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "nick",
-            "description": "<p>Nickname of friend.</p> "
-          }
-        ]
-      }
-    },
-    "examples": [
-      {
-        "title": "Example usage:",
-        "content": "{\n  \"nick\": \"Mero\"\n}",
-        "type": "json"
-      }
-    ],
-    "header": {
-      "fields": {
-        "Headers": [
-          {
-            "group": "Headers",
-            "type": "String",
-            "optional": false,
-            "field": "X-Token",
-            "description": "<p>Token of session</p> "
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Array",
-            "optional": false,
-            "field": "scraps",
-            "description": "<p>List of scraps.</p> "
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"scraps\": [\n               {\"id\": 1851, \"sender\": \"Anna\", \"content\": \"That's a nice man\", \"likes\": 7},\n               {\"id\": 2158, \"sender\": \"Giselle\", \"content\": \"I love you!\", \"likes\": 12}\n            ]\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "./example.js",
-    "groupTitle": "Sraps"
   },
   {
     "type": "POST",
